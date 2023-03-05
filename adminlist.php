@@ -7,6 +7,8 @@ if($_SESSION['user_type']!="administrador"){
 }
 //conexion a la base de datos
 include("conexion.php");
+//registrar usuario
+
 if($_POST){
 	$username=$_POST['username'];
 	$pasword=$_POST['password'];
@@ -17,8 +19,9 @@ if($_POST){
 	$_SESSION['message'] = 'registrado';
 	
 }
-$password = bin2hex(random_bytes(8));
-
+//consultar datos
+$objconexion=new conexion();
+$resultado=$objconexion->consultar("select * from `usuarios`");
 
 ?>
 
@@ -108,7 +111,7 @@ $password = bin2hex(random_bytes(8));
 		<!-- Content page -->
 		<div class="container-fluid">
 			<div class="page-header">
-			  <h1 class="text-titles"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Nuevo Usuario <small>Admin</small></h1>
+			  <h1 class="text-titles"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Lista de Usuarios <small>Admin</small></h1>
 			</div>
 			<p class="lead">Administrador registra Cobradores,vendedor Clientes.</p>
 		</div>
@@ -116,39 +119,56 @@ $password = bin2hex(random_bytes(8));
 			<div class="row">
 				<div class="col-xs-12">
 					<ul class="nav nav-tabs" style="margin-bottom: 15px;">
-					  	<li><a href="admin.php" data-toggle="tab">Nuevo Usuario</a></li>
+					  	<li><a href="#list" data-toggle="tab">Lista de Usuarios</a></li>
 					</ul>
 					<div id="myTabContent" class="tab-content">
-                    <div class="tab-pane fade active in" id="new">
-							<div class="container-fluid">
-								<div class="row">
-									<div class="col-xs-12 col-md-10 col-md-offset-1">
-									    <form action="adminlist.php" method="post">
-									    	<div class="form-group label-floating">
-											  <label class="control-label">Usuario</label>
-											  <input class="form-control" type="text" name="username" required>
-											</div>
-											<div class="form-group label-floating">
-											  <label class="control-label">Contraseña</label>
-											  <input class="form-control" type="text" name="password" value="<?php echo $password; ?>" required>
-											</div>
-											<div class="form-group label-floating">
-												<label class="control-label">Tipo</label>
-													<select class="form-control" name="tipo">
-														<option value="administrador">administrador</option>
-														<option value="cobrador">cobrador</option>
-														<option value="vendedor">vendedor</option>
-														<option value="cliente">cliente</option>
-													</select>
-											</div>
-										    <p class="text-center">
-										    	<button type="submit" class="btn btn-secondary btn-raised btn-sm" ><i class="zmdi zmdi-floppy"></i> Guardar</button>
-										    </p>
-									    </form>
-									</div>
-								</div>
+                    <div class="table-responsive">
+								<table class="table table-hover text-center">
+									<thead>
+										<tr>
+											<th class="text-center">#</th>
+											<th class="text-center">Usuario</th>
+											<th class="text-center">Contraseña</th>
+											<th class="text-center">Tipo</th>
+											<th class="text-center">Actualizar</th>
+											<th class="text-center">Eliminar</th>
+										</tr>
+									</thead>
+
+									<tbody>
+                                    
+									<?php foreach($resultado as $proyecto){ ?>
+										<tr >
+											<td><?php echo $proyecto['id']; ?></td>
+											<td><?php echo $proyecto['username']; ?></td>
+											
+											<td><?php echo $proyecto['password']; ?></td>
+
+											<td><?php echo $proyecto['tipo']; ?></td>
+
+											<td>
+																							<form action="adminactualizar.php" method="post">
+                                                                                                <input type="hidden" name="id" value="<?php echo $proyecto['id']; ?>">
+                                                                                                <button type="submit" class="btn btn-primary btn-raised btn-xs"><i class="zmdi zmdi-refresh"></i></button>
+                                                                                            </form>
+                                            </td>
+											<td>
+                                                                                        <form action="adminborrar.php" method="post">
+                                                                                                <input type="hidden" name="id" value="<?php echo $proyecto['id']; ?>">
+                                                                                                <button type="submit" class="btn btn-danger btn-raised btn-xs"><i class="zmdi zmdi-delete"></i></button>
+                                                                                        </form>
+                                            </td>
+										</tr>
+										<?php } ?>
+									</tbody>
+								</table>
+								
 							</div>
 						</div>
+					  	<div class="tab-pane fade" id="list">
+							
+					  	</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -166,7 +186,7 @@ $password = bin2hex(random_bytes(8));
 	<script>
 		$.material.init();
 	</script>
-
+	
 <?php if (isset($_SESSION['message'])) { 
 ?>
 		<script>swal(

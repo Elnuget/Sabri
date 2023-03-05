@@ -1,4 +1,4 @@
-<!--Probandoooooo12345CarlosssRicardo-->
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -113,10 +113,8 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
                                 <div class="card-3d-wrapper">
                                     <div class="card-front">
                                         <div class="center-wrap">
-
 										<!--Zona que comprende el inio de sesion y las secciones hasta la zona de olvido de contraseña--->
 										<form action="index.php" method="post" autocomplete="off">
-
                                             <div class="section text-center">
 												<!--Título de "Inicio de sesión" hasta la zona que comprende el inico de sesión--->
                                                 <h4 class="mb-4 pb-3">Inicio de sesión </h4>
