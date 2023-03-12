@@ -31,9 +31,14 @@ $password = bin2hex(random_bytes(8));
 	<!-- Refencias -->
 	<link rel="stylesheet" href="./css/main.css">
 	<link rel="icon" href="img/fevicon.png" type="image/gif" />
-	
+	<link rel="stylesheet" href="./css/styleAdmin.css">
 	
 </head>
+
+
+<!-- Barra lateral izquierda inicio---->
+
+
 <body>
 	<!-- SideBar -->
 	<section class="full-box cover dashboard-sideBar">
@@ -79,6 +84,13 @@ $password = bin2hex(random_bytes(8));
 		</div>
 	</section>
 
+
+	<!---  Barra lateral izquierda final--->
+
+	
+
+	<!--- inicio de contenido de la página---->
+	
 	<!-- Content page-->
 	<section class="full-box dashboard-contentPage">
 		<!-- NavBar -->
@@ -142,7 +154,7 @@ $password = bin2hex(random_bytes(8));
 													</select>
 											</div>
 										    <p class="text-center">
-										    	<button type="submit" class="btn btn-secondary btn-raised btn-sm" ><i class="zmdi zmdi-floppy"></i> Guardar</button>
+										    	<button type="submit" class="custom-btn btn-12" ><span><i class="zmdi zmdi-floppy"></i> Guardar</span><span>Continuar</span></button>
 										    </p>
 									    </form>
 									</div>
@@ -154,8 +166,14 @@ $password = bin2hex(random_bytes(8));
 		</div>
 	</section>
 
-	
-	<!--====== Scripts -->
+
+
+	<!--====== Scripts
+	Nota: El primer script será usado más tarde para las animaciones, no borrar.
+	-->
+
+	<script  src="./js/script.js"></script>
+
 	<script src="./js/jquery-3.1.1.min.js"></script>
 	<script src="./js/sweetalert2.min.js"></script>
 	<script src="./js/bootstrap.min.js"></script>

@@ -185,8 +185,6 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
 
 	<!--====== Scripts -->
 
-	<script  src="./script.js"></script>
-
 	<script src="./js/jquery-3.1.1.min.js"></script>
 	<script src="./js/bootstrap.min.js"></script>
 	<script src="./js/material.min.js"></script>
