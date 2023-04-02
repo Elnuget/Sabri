@@ -29,150 +29,308 @@ $password = bin2hex(random_bytes(8));
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<!-- Refencias -->
+  <link rel="stylesheet" href="./css/styleAdmin.css">
 	<link rel="stylesheet" href="./css/main.css">
 	<link rel="icon" href="img/fevicon.png" type="image/gif" />
-	<link rel="stylesheet" href="./css/styleAdmin.css">
 	
+	
+
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css'>
+<link rel='stylesheet' href='https://unpkg.com/css-pro-layout@1.1.0/dist/css/css-pro-layout.css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap'>
+
+
 </head>
-
-
-<!-- Barra lateral izquierda inicio---->
-
-
 <body>
 	<!-- SideBar -->
-	<section class="full-box cover dashboard-sideBar">
-		<div class="full-box dashboard-sideBar-bg btn-menu-dashboard"></div>
-		<div class="full-box dashboard-sideBar-ct">
-			<!--SideBar Title -->
-			<div class="full-box text-uppercase text-center text-titles dashboard-sideBar-title">
-				sabri <i class="zmdi zmdi-close btn-menu-dashboard visible-xs"></i>
-			</div>
-			<!-- SideBar User info -->
-			<div class="full-box dashboard-sideBar-UserInfo">
-				<figure class="full-box">
-					<img src="./assets/img/avatar.jpg" alt="UserIcon">
-					<figcaption class="text-center text-titles text-uppercase"><?php echo $_SESSION["user_type"]; ?> | <?php echo $_SESSION["user_name"]; ?></figcaption>
-				</figure>
-				<ul class="full-box list-unstyled text-center">
-					<li>
-						<a href="#!">
-							<i class="zmdi zmdi-settings"></i>
-						</a>
-					</li>
-					<li>
-						<a href="#!" class="btn-exit-system">
-							<i class="zmdi zmdi-power"></i>
-						</a>
-					</li>
-				</ul>
-			</div>
-			<!-- SideBar Menu -->
-			<ul class="list-unstyled full-box dashboard-sideBar-Menu">
-				<li>
-					<a href="admin.php">
-						<i class="zmdi zmdi-account-add zmdi-hc-fw"></i> Nuevo Usuario
-					</a>
-				</li>
-                <li>
-                    <a href="adminlist.php">
-                        <i class="zmdi zmdi-account zmdi-hc-fw"></i> Lista de Usuarios
-                    </a>
+	<!-- partial:index.partial.html -->
+<div class="layout has-sidebar fixed-sidebar fixed-header">
+      <aside id="sidebar" class="sidebar break-point-sm has-bg-image">
+        <a id="btn-collapse" class="sidebar-collapser"><i class="ri-arrow-left-s-line"></i></a>
+        <div class="image-wrapper">
+          <img src="assets/images/sidebar-bg.jpg" alt="sidebar background" />
+        </div>
+        <div class="sidebar-layout">
+         
+          <div class="sidebar-content">
+
+
+          <div class="sidebar-header">
+            <div class="pro-sidebar-logo">
+              <div>S</div>
+              <h5>PROYECTO SABRI</h5>
+            </div>
+          </div>
+          
+            <div class="full-box dashboard-sideBar-UserInfo">
+              <figure class="full-box">
+                <img src="./assets/img/avatar.jpg" alt="UserIcon">
+                <figcaption class="text-center text-titles text-uppercase"><br><?php echo $_SESSION["user_type"]; ?> <br> <?php echo $_SESSION["user_name"]; ?></figcaption>
+              </figure>
+
+              <ul class="full-box list-unstyled text-center">
+					      <li>
+					      	<a href="#!">
+							      <i class="zmdi zmdi-settings"></i>
+						      </a>
+					      </li>
+				      	<li>
+					      	<a href="#!" class="btn-exit-system">
+					      		<i class="zmdi zmdi-power"></i>
+					       	</a>
+				      	</li>
+				      </ul>
+
+            </div>
+
+            
+                   
+
+            <nav class="menu open-current-submenu">
+              <ul>
+                <li class="menu-header"><span> GENERAL </span></li>
+                <li class="menu-item">
+                  <a href="admin.php">
+                    <span class="menu-icon">
+                        <i class="ri-user-add-line"></i>
+                    </span>
+                    <span class="menu-title">Nuevo Usuario</span>
+                  </a>
                 </li>
-				
-			</ul>
-		</div>
-	</section>
+
+                <li class="menu-item">
+                  <a href="adminlist.php">
+                    <span class="menu-icon">
+                      <i class="ri-folder-user-line"></i>
+                    </span>
+                    <span class="menu-title">Lista de Usuarios</span>
+                  </a>
+                </li>
+
+<!-- Para agregar MÁS OPCIONES a futuros
+
+                <li class="menu-item sub-menu">
+                  <a href="#">
+                    <span class="menu-icon">
+                      <i class="ri-shopping-cart-fill"></i>
+                    </span>
+                    <span class="menu-title">E-commerce</span>
+                  </a>
+                  <div class="sub-menu-list">
+                    <ul>
+                      <li class="menu-item">
+                        <a href="#">
+                          <span class="menu-title">Products</span>
+                        </a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="#">
+                          <span class="menu-title">Orders</span>
+                        </a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="#">
+                          <span class="menu-title">credit card</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+
+                <li class="menu-item sub-menu">
+                  <a href="#">
+                    <span class="menu-icon">
+                      <i class="ri-global-fill"></i>
+                    </span>
+                    <span class="menu-title">Maps</span>
+                  </a>
+                  <div class="sub-menu-list">
+                    <ul>
+                      <li class="menu-item">
+                        <a href="#">
+                          <span class="menu-title">Google maps</span>
+                        </a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="#">
+                          <span class="menu-title">Open street map</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+
+                <li class="menu-item sub-menu">
+                  <a href="#">
+                    <span class="menu-icon">
+                     <i class="ri-paint-brush-fill"></i>
+                    </span>
+                    <span class="menu-title">Theme</span>
+                  </a>
+                  <div class="sub-menu-list">
+                    <ul>
+                      <li class="menu-item">
+                        <a href="#">
+                          <span class="menu-title">Dark</span>
+                        </a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="#">
+                          <span class="menu-title">Light</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                
+-->
+
+                <li class="menu-header" style="padding-top: 20px"><span> EXTRA </span></li>
 
 
-	<!---  Barra lateral izquierda final--->
+<!-- Para uso de CONTENIDO EXTRA
+
+                <li class="menu-item">
+                  <a href="#">
+                    <span class="menu-icon">
+                      <i class="ri-book-2-fill"></i>
+                    </span>
+                    <span class="menu-title">Documentation</span>
+                    <span class="menu-suffix">
+                      <span class="badge secondary">Beta</span>
+                    </span>
+                  </a>
+                </li>
+
+                <li class="menu-item">
+                  <a href="#">
+                    <span class="menu-icon">
+                      <i class="ri-calendar-fill"></i>
+                    </span>
+                    <span class="menu-title">Calendar</span>
+                  </a>
+                </li>
+
+                <li class="menu-item">
+                  <a href="#">
+                    <span class="menu-icon">
+                      <i class="ri-service-fill"></i>
+                    </span>
+                    <span class="menu-title">Examples</span>
+                  </a>
+                </li>
+
+-->
+
+              </ul>
+            </nav>
+          </div>
+          
+        </div>
+      </aside>
+
+      <!---Fin de la barra lateral
+                  Inicio de la página principal-->
+
+      <div id="overlay" class="overlay"></div>
+      <div class="layout">
+        <main class="">
+          
+          
+          <nav class="full-box dashboard-Navbar">
+            <ul class="full-box list-unstyled text-right">
+              <li class="pull-left">
+                <a id="btn-collapse" class="sidebar-collapser"><i class="ri-arrow-left-s-line"></i></a>
+              </li>
+              <li>
+                <a href="#!" class="btn-Notifications-area">
+                  <i class="zmdi zmdi-notifications-none"></i>
+                  <span class="badge">7</span>
+                </a>
+              </li>
+              <li>
+                <a href="#!" class="btn-search">
+                  <i class="zmdi zmdi-search"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#!" class="btn-modal-help">
+                  <i class="zmdi zmdi-help-outline"></i>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- Content page -->
+          <div class="container-fluid">
+            <div class="page-header">
+              <h1 class="text-titles"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Nuevo Usuario <small>Admin</small></h1>
+            </div>
+            <p class="lead">Administrador registra Cobradores,vendedor Clientes.</p>
+          </div>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-xs-12">
+                <ul class="nav nav-tabs" style="margin-bottom: 15px;">
+                    <li><a href="admin.php" data-toggle="tab">Nuevo Usuario</a></li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                          <div class="tab-pane fade active in" id="new">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-xs-12 col-md-10 col-md-offset-1">
+                            <form action="adminlist.php" method="post">
+                              <div class="form-group label-floating">
+                              <label class="control-label">Usuario</label>
+                              <input class="form-control" type="text" name="username" required>
+                            </div>
+                            <div class="form-group label-floating">
+                              <label class="control-label">Contraseña</label>
+                              <input class="form-control" type="text" name="password" value="<?php echo $password; ?>" required>
+                            </div>
+                            <div class="form-group label-floating">
+                              <label class="control-label">Tipo</label>
+                                <select class="form-control" name="tipo">
+                                  <option value="administrador">administrador</option>
+                                  <option value="cobrador">cobrador</option>
+                                  <option value="vendedor">vendedor</option>
+                                  <option value="cliente">cliente</option>
+                                </select>
+                            </div>
+                            <div>
+                              <p class="text-center">
+										    	        <button type="submit" class="custom-btn btn-12" ><span><i class="zmdi zmdi-floppy"></i> Guardar</span><span>Continuar</span></button>
+										          </p>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <footer class="footer">
+            <small style="margin-bottom: 20px; display: inline-block">
+              © 2023 hecho con
+              <span style="color: red; font-size: 18px">&#10084;</span> por -
+              <a target="_blank">Su Servilleta </a>
+            </small>
+            <br />    
+          </footer>
+        </main>
+        <div class="overlay"></div>
+      </div>
+    </div>
 
 	
+	<!--====== Scripts -->
 
-	<!--- inicio de contenido de la página---->
-	
-	<!-- Content page-->
-	<section class="full-box dashboard-contentPage">
-		<!-- NavBar -->
-		<nav class="full-box dashboard-Navbar">
-			<ul class="full-box list-unstyled text-right">
-				<li class="pull-left">
-					<a href="#!" class="btn-menu-dashboard"><i class="zmdi zmdi-more-vert"></i></a>
-				</li>
-				<li>
-					<a href="#!" class="btn-Notifications-area">
-						<i class="zmdi zmdi-notifications-none"></i>
-						<span class="badge">7</span>
-					</a>
-				</li>
-				<li>
-					<a href="#!" class="btn-search">
-						<i class="zmdi zmdi-search"></i>
-					</a>
-				</li>
-				<li>
-					<a href="#!" class="btn-modal-help">
-						<i class="zmdi zmdi-help-outline"></i>
-					</a>
-				</li>
-			</ul>
-		</nav>
-		<!-- Content page -->
-		<div class="container-fluid">
-			<div class="page-header">
-			  <h1 class="text-titles"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Nuevo Usuario <small>Admin</small></h1>
-			</div>
-			<p class="lead">Administrador registra Cobradores,vendedor Clientes.</p>
-		</div>
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-xs-12">
-					<ul class="nav nav-tabs" style="margin-bottom: 15px;">
-					  	<li><a href="admin.php" data-toggle="tab">Nuevo Usuario</a></li>
-					</ul>
-					<div id="myTabContent" class="tab-content">
-                    <div class="tab-pane fade active in" id="new">
-							<div class="container-fluid">
-								<div class="row">
-									<div class="col-xs-12 col-md-10 col-md-offset-1">
-									    <form action="adminlist.php" method="post">
-									    	<div class="form-group label-floating">
-											  <label class="control-label">Usuario</label>
-											  <input class="form-control" type="text" name="username" required>
-											</div>
-											<div class="form-group label-floating">
-											  <label class="control-label">Contraseña</label>
-											  <input class="form-control" type="text" name="password" value="<?php echo $password; ?>" required>
-											</div>
-											<div class="form-group label-floating">
-												<label class="control-label">Tipo</label>
-													<select class="form-control" name="tipo">
-														<option value="administrador">administrador</option>
-														<option value="cobrador">cobrador</option>
-														<option value="vendedor">vendedor</option>
-														<option value="cliente">cliente</option>
-													</select>
-											</div>
-										    <p class="text-center">
-										    	<button type="submit" class="custom-btn btn-12" ><span><i class="zmdi zmdi-floppy"></i> Guardar</span><span>Continuar</span></button>
-										    </p>
-									    </form>
-									</div>
-								</div>
-							</div>
-						</div>
-				</div>
-			</div>
-		</div>
-	</section>
+  <script  src="./js/script.js"></script>
 
-
-
-	<!--====== Scripts
-	Nota: El primer script será usado más tarde para las animaciones, no borrar.
-	-->
-
-	<script  src="./js/script.js"></script>
+  <script src='https://unpkg.com/@popperjs/core@2'></script>
 
 	<script src="./js/jquery-3.1.1.min.js"></script>
 	<script src="./js/sweetalert2.min.js"></script>

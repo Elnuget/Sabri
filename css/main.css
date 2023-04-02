@@ -50,6 +50,8 @@ body, html{
 	padding: 0;
 	width: 100%;
 	box-sizing: border-box;
+
+
 }
 .cover{
 	background: 50% 50% no-repeat;
@@ -151,6 +153,8 @@ body, html{
 .dashboard-sideBar-UserInfo ul > li > a:hover{
 	color: #FF5722;
 }
+
+/*
 .dashboard-sideBar-Menu{
 	padding-top: 15px;
 }
@@ -207,6 +211,11 @@ body, html{
 	border-left: 3px solid #FF5722;
 	color: #FF5722;
 }
+
+
+
+
+
 /*contentPage*/
 .dashboard-contentPage{
 	right: 0;
@@ -604,3 +613,18 @@ body, html{
 		padding-left: 0;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
